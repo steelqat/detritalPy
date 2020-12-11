@@ -1897,6 +1897,7 @@ def plotFoliumMap(sampleList, main_byid_df, ages, errors, numGrains, plotMapKDE,
                         distArea.axis_titles(x='Age (Ma)', y='')
                         distArea.legend(title=sampleList[i][0][j])
 <<<<<<< HEAD:detritalPy/detritalFuncs.py
+<<<<<<< HEAD:detritalPy/detritalFuncs.py
                         if stickyPopups:
                             popup = folium.Popup(max_width=600, sticky=True)
                         else:
@@ -1904,6 +1905,8 @@ def plotFoliumMap(sampleList, main_byid_df, ages, errors, numGrains, plotMapKDE,
                         folium.Vega(distArea, height=int(height*1.5), width=int(width*1.25)).add_to(popup)
                         folium.RegularPolygonMarker([main_byid_df.loc[sampleList[i][0][j],'Latitude'],main_byid_df.loc[sampleList[i][0][j],
 =======
+=======
+>>>>>>> parent of 03f9a92... Added additional Folium options:detritalFuncs.py
                         popup = folium.Popup(max_width=600, sticky=True)
                         folium.Vega(distArea, height=150, width=500).add_to(popup)
                         folium.RegularPolygonMarker([main_byid_df.ix[sampleList[i][0][j],'Latitude'],main_byid_df.ix[sampleList[i][0][j],
@@ -1914,6 +1917,7 @@ def plotFoliumMap(sampleList, main_byid_df, ages, errors, numGrains, plotMapKDE,
                         distLine.axis_titles(x='Age (Ma)', y='')
                         distLine.legend(title=sampleList[i][0][j])
 <<<<<<< HEAD:detritalPy/detritalFuncs.py
+<<<<<<< HEAD:detritalPy/detritalFuncs.py
                         if stickyPopups:
                             popup = folium.Popup(max_width=600, sticky=True)
                         else:
@@ -1921,6 +1925,8 @@ def plotFoliumMap(sampleList, main_byid_df, ages, errors, numGrains, plotMapKDE,
                         folium.Vega(distLine, height=int(height*1.5), width=int(width*1.25)).add_to(popup)
                         folium.RegularPolygonMarker([main_byid_df.loc[sampleList[i][0][j],'Latitude'],main_byid_df.loc[sampleList[i][0][j],
 =======
+=======
+>>>>>>> parent of 03f9a92... Added additional Folium options:detritalFuncs.py
                         popup = folium.Popup(max_width=600, sticky=True)
                         folium.Vega(distLine, height=150, width=500).add_to(popup)
                         folium.RegularPolygonMarker([main_byid_df.ix[sampleList[i][0][j],'Latitude'],main_byid_df.ix[sampleList[i][0][j],
@@ -1963,6 +1969,7 @@ def plotFoliumMap(sampleList, main_byid_df, ages, errors, numGrains, plotMapKDE,
                     distArea.axis_titles(x='Age (Ma)', y='')
                     distArea.legend(title=sampleList[i])
 <<<<<<< HEAD:detritalPy/detritalFuncs.py
+<<<<<<< HEAD:detritalPy/detritalFuncs.py
                     if stickyPopups:
                         popup = folium.Popup(max_width=600, sticky=True)
                     else:
@@ -1970,6 +1977,8 @@ def plotFoliumMap(sampleList, main_byid_df, ages, errors, numGrains, plotMapKDE,
                     folium.Vega(distArea, height=int(height*1.5), width=int(width*1.25)).add_to(popup)
                     folium.RegularPolygonMarker([main_byid_df.loc[sampleList[i],'Latitude'],main_byid_df.loc[sampleList[i],
 =======
+=======
+>>>>>>> parent of 03f9a92... Added additional Folium options:detritalFuncs.py
                     popup = folium.Popup(max_width=600, sticky=True)
                     folium.Vega(distArea, height=150, width=500).add_to(popup)
                     folium.RegularPolygonMarker([main_byid_df.ix[sampleList[i],'Latitude'],main_byid_df.ix[sampleList[i],
@@ -1980,6 +1989,7 @@ def plotFoliumMap(sampleList, main_byid_df, ages, errors, numGrains, plotMapKDE,
                     distLine.axis_titles(x='Age (Ma)', y='')
                     distLine.legend(title=sampleList[i])
 <<<<<<< HEAD:detritalPy/detritalFuncs.py
+<<<<<<< HEAD:detritalPy/detritalFuncs.py
                     if stickyPopups:
                         popup = folium.Popup(max_width=600, sticky=True)
                     else:
@@ -1987,6 +1997,8 @@ def plotFoliumMap(sampleList, main_byid_df, ages, errors, numGrains, plotMapKDE,
                     folium.Vega(distLine, height=int(height*1.5), width=int(width*1.25)).add_to(popup)
                     folium.RegularPolygonMarker([main_byid_df.loc[sampleList[i],'Latitude'],main_byid_df.loc[sampleList[i],
 =======
+=======
+>>>>>>> parent of 03f9a92... Added additional Folium options:detritalFuncs.py
                     popup = folium.Popup(max_width=600, sticky=True)
                     folium.Vega(distLine, height=150, width=500).add_to(popup)
                     folium.RegularPolygonMarker([main_byid_df.ix[sampleList[i],'Latitude'],main_byid_df.ix[sampleList[i],
@@ -2658,6 +2670,9 @@ def MDS(ages, errors, labels, sampleList, metric, plotWidth, plotHeight, plotPie
 
 
 
+<<<<<<< HEAD:detritalPy/detritalFuncs.py
+>>>>>>> parent of 03f9a92... Added additional Folium options:detritalFuncs.py
+=======
 >>>>>>> parent of 03f9a92... Added additional Folium options:detritalFuncs.py
     """
     Create a multi-dimensional scaling (MDS) plot for individual samples or groups of samples.
@@ -2718,13 +2733,19 @@ def MDS(ages, errors, labels, sampleList, metric, plotWidth, plotHeight, plotPie
                 matrix[i,j] = calcVmax(dist[i], dist[j])
             if criteria == 'R2-PDP' or criteria == 'R2-KDE':
 <<<<<<< HEAD:detritalPy/detritalFuncs.py
+<<<<<<< HEAD:detritalPy/detritalFuncs.py
                 matrix[i,j] = calcComplR2(dist[i], dist[j])     
     mds = manifold.MDS(random_state=1, dissimilarity='precomputed', n_init=1)
 =======
+=======
+>>>>>>> parent of 03f9a92... Added additional Folium options:detritalFuncs.py
                 matrix[i,j] = calcComplR2(CDF[i], CDF[j])     
 
     mds = manifold.MDS(random_state=1, dissimilarity='precomputed', n_init = n_init)
     #mds = manifold.MDS(random_state=1, dissimilarity='precomputed', n_init = 1)
+<<<<<<< HEAD:detritalPy/detritalFuncs.py
+>>>>>>> parent of 03f9a92... Added additional Folium options:detritalFuncs.py
+=======
 >>>>>>> parent of 03f9a92... Added additional Folium options:detritalFuncs.py
     pos = mds.fit(matrix).embedding_
     posStress = mds.fit(matrix).stress_
