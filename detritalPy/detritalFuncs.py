@@ -1718,8 +1718,7 @@ def plotBar(width, height, overlap, main_byid_df, sampleList, ages, numGrains, l
             figBar.savefig(pathlib.Path('Output/') / (('BarSamples')+('.pdf')))    
     return figBar
 
-def plotFoliumMap(sampleList, main_byid_df, ages, errors, numGrains, plotMapKDE, plotMapPDP, plotCumulative, 
-    x2, bw, mapType, exportKML, descrpt, stickyPopups = False, width=400, height=100):
+def plotFoliumMap(sampleList, main_byid_df, ages, errors, numGrains, plotMapKDE, plotMapPDP, plotCumulative, x2, bw, mapType, exportKML, descrpt):
     """
     Displays sample locations on an interactive map.
 
@@ -1894,26 +1893,38 @@ def plotFoliumMap(sampleList, main_byid_df, ages, errors, numGrains, plotMapKDE,
             for j in range(len(sampleList[i][0])): # Loop for each sample within each group
                 if not isNaN(main_byid_df.loc[sampleList[i][0][j],'Latitude']):
                     if ((plotMapKDE or plotMapPDP) and not plotCumulative):
-                        distArea = vincent.Area(dist[1][j].tolist(), width=width, height=height)
+                        distArea = vincent.Area(dist[1][j].tolist(), width=400, height=100)
                         distArea.axis_titles(x='Age (Ma)', y='')
                         distArea.legend(title=sampleList[i][0][j])
+<<<<<<< HEAD:detritalPy/detritalFuncs.py
                         if stickyPopups:
                             popup = folium.Popup(max_width=600, sticky=True)
                         else:
                             popup = folium.Popup(max_width=600)
                         folium.Vega(distArea, height=int(height*1.5), width=int(width*1.25)).add_to(popup)
                         folium.RegularPolygonMarker([main_byid_df.loc[sampleList[i][0][j],'Latitude'],main_byid_df.loc[sampleList[i][0][j],
+=======
+                        popup = folium.Popup(max_width=600, sticky=True)
+                        folium.Vega(distArea, height=150, width=500).add_to(popup)
+                        folium.RegularPolygonMarker([main_byid_df.ix[sampleList[i][0][j],'Latitude'],main_byid_df.ix[sampleList[i][0][j],
+>>>>>>> parent of 03f9a92... Added additional Folium options:detritalFuncs.py
                                                 'Longitude']], fill_color=colorMe(i), radius=6, popup=popup).add_to(feature_group)
                     if (plotCumulative):
-                        distLine = vincent.Line(dist[1][j].tolist(), width=width, height=height)
+                        distLine = vincent.Line(dist[1][j].tolist(), width=400, height=100)
                         distLine.axis_titles(x='Age (Ma)', y='')
                         distLine.legend(title=sampleList[i][0][j])
+<<<<<<< HEAD:detritalPy/detritalFuncs.py
                         if stickyPopups:
                             popup = folium.Popup(max_width=600, sticky=True)
                         else:
                             popup = folium.Popup(max_width=600)
                         folium.Vega(distLine, height=int(height*1.5), width=int(width*1.25)).add_to(popup)
                         folium.RegularPolygonMarker([main_byid_df.loc[sampleList[i][0][j],'Latitude'],main_byid_df.loc[sampleList[i][0][j],
+=======
+                        popup = folium.Popup(max_width=600, sticky=True)
+                        folium.Vega(distLine, height=150, width=500).add_to(popup)
+                        folium.RegularPolygonMarker([main_byid_df.ix[sampleList[i][0][j],'Latitude'],main_byid_df.ix[sampleList[i][0][j],
+>>>>>>> parent of 03f9a92... Added additional Folium options:detritalFuncs.py
                                                 'Longitude']], fill_color=colorMe(i), radius=6, popup=popup).add_to(feature_group)
                     if (not (plotMapKDE or plotMapPDP or plotCumulative)):
                         folium.RegularPolygonMarker([main_byid_df.loc[sampleList[i][0][j],'Latitude'],main_byid_df.loc[sampleList[i][0][j],
@@ -1948,26 +1959,38 @@ def plotFoliumMap(sampleList, main_byid_df, ages, errors, numGrains, plotMapKDE,
         for i in range(len(sampleList)):
             if not isNaN(main_byid_df.loc[sampleList[i],'Latitude']):
                 if ((plotMapKDE or plotMapPDP) and not plotCumulative):
-                    distArea = vincent.Area(dist[1][i].tolist(), width=width, height=height)
+                    distArea = vincent.Area(dist[1][i].tolist(), width=400, height=100)
                     distArea.axis_titles(x='Age (Ma)', y='')
                     distArea.legend(title=sampleList[i])
+<<<<<<< HEAD:detritalPy/detritalFuncs.py
                     if stickyPopups:
                         popup = folium.Popup(max_width=600, sticky=True)
                     else:
                         popup = folium.Popup(max_width=600)
                     folium.Vega(distArea, height=int(height*1.5), width=int(width*1.25)).add_to(popup)
                     folium.RegularPolygonMarker([main_byid_df.loc[sampleList[i],'Latitude'],main_byid_df.loc[sampleList[i],
+=======
+                    popup = folium.Popup(max_width=600, sticky=True)
+                    folium.Vega(distArea, height=150, width=500).add_to(popup)
+                    folium.RegularPolygonMarker([main_byid_df.ix[sampleList[i],'Latitude'],main_byid_df.ix[sampleList[i],
+>>>>>>> parent of 03f9a92... Added additional Folium options:detritalFuncs.py
                                             'Longitude']], fill_color=colorMe(0), radius=6, popup=popup).add_to(feature_group)
                 if (plotCumulative):
-                    distLine = vincent.Line(dist[1][i].tolist(), width=width, height=height)
+                    distLine = vincent.Line(dist[1][i].tolist(), width=400, height=100)
                     distLine.axis_titles(x='Age (Ma)', y='')
                     distLine.legend(title=sampleList[i])
+<<<<<<< HEAD:detritalPy/detritalFuncs.py
                     if stickyPopups:
                         popup = folium.Popup(max_width=600, sticky=True)
                     else:
                         popup = folium.Popup(max_width=600)
                     folium.Vega(distLine, height=int(height*1.5), width=int(width*1.25)).add_to(popup)
                     folium.RegularPolygonMarker([main_byid_df.loc[sampleList[i],'Latitude'],main_byid_df.loc[sampleList[i],
+=======
+                    popup = folium.Popup(max_width=600, sticky=True)
+                    folium.Vega(distLine, height=150, width=500).add_to(popup)
+                    folium.RegularPolygonMarker([main_byid_df.ix[sampleList[i],'Latitude'],main_byid_df.ix[sampleList[i],
+>>>>>>> parent of 03f9a92... Added additional Folium options:detritalFuncs.py
                                             'Longitude']], fill_color=colorMe(0), radius=6, popup=popup).add_to(feature_group)
                 if (not (plotMapKDE or plotMapPDP or plotCumulative)):
                     folium.RegularPolygonMarker([main_byid_df.loc[sampleList[i],'Latitude'],main_byid_df.loc[sampleList[i],
@@ -2166,6 +2189,7 @@ def MDAtoCSV(sampleList, ages, errors, numGrains, labels, fileName, sortBy, barW
 
         if makePlot:
             return figMDA
+<<<<<<< HEAD:detritalPy/detritalFuncs.py
 
 class MDS_class:
     """
@@ -2628,6 +2652,13 @@ class MDS_class:
             print('Final stress: ',self.stressArray[self.dim-self.min_dim])
     
 def MDS(ages, errors, labels, sampleList, metric=False, plotWidth='10', plotHeight='8', plotPie=False, pieSize=0.05, agebins=None, agebinsc=None, criteria='Dmax', bw='optimizedFixed', color='Default', main_byid_df=None, plotLabels=True):
+=======
+                
+def MDS(ages, errors, labels, sampleList, metric, plotWidth, plotHeight, plotPie, pieSize, agebins, agebinsc, criteria='Dmax', bw='optimizedFixed', color='Default', main_byid_df=None, n_init=4):
+
+
+
+>>>>>>> parent of 03f9a92... Added additional Folium options:detritalFuncs.py
     """
     Create a multi-dimensional scaling (MDS) plot for individual samples or groups of samples.
 
@@ -2686,19 +2717,29 @@ def MDS(ages, errors, labels, sampleList, metric=False, plotWidth='10', plotHeig
             if criteria == 'Vmax':
                 matrix[i,j] = calcVmax(dist[i], dist[j])
             if criteria == 'R2-PDP' or criteria == 'R2-KDE':
+<<<<<<< HEAD:detritalPy/detritalFuncs.py
                 matrix[i,j] = calcComplR2(dist[i], dist[j])     
     mds = manifold.MDS(random_state=1, dissimilarity='precomputed', n_init=1)
+=======
+                matrix[i,j] = calcComplR2(CDF[i], CDF[j])     
+
+    mds = manifold.MDS(random_state=1, dissimilarity='precomputed', n_init = n_init)
+    #mds = manifold.MDS(random_state=1, dissimilarity='precomputed', n_init = 1)
+>>>>>>> parent of 03f9a92... Added additional Folium options:detritalFuncs.py
     pos = mds.fit(matrix).embedding_
-    posStress = mds.fit(matrix).stress_     
-    nmds = manifold.MDS(metric=False, random_state=1, dissimilarity='precomputed', n_init=1)
-    npos = nmds.fit_transform(matrix, init=pos)
-    nposStress = mds.fit(matrix).stress_ 
+    posStress = mds.fit(matrix).stress_
+
+    nmds = manifold.MDS(metric=False, random_state=1, dissimilarity='precomputed', n_init = n_init)
+    npos = nmds.fit_transform(matrix) #, init=pos)
+    nposStress = mds.fit(matrix).stress_
+    
     if metric:
         m = pos
         stress = posStress
     else:
         m = npos
         stress = nposStress
+    #print(m)
 
     # For coloring by category
     if color != 'Default':
@@ -2741,7 +2782,7 @@ def MDS(ages, errors, labels, sampleList, metric=False, plotWidth='10', plotHeig
                 if plotLabels:
                     ax.text(m[i][0]+0.01,m[i][1]+0.01,labels[i])
 
-    return figMDS, stress
+    return matrix, figMDS, stress
 
 def plotDoubleDating(main_byid_df, sampleList, x1, x2, y1, y2, plotKDE, colorKDE, colorKDEbyAge, plotPDP, colorPDP, colorPDPbyAge, plotHist, b, bw, xdif, width, height, savePlot, agebins, agebinsc, coolingAge='ZHe_Age', coolingAgeErr='ZHe_Age_err'):
     """
